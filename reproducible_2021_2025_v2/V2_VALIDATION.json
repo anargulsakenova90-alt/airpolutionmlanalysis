@@ -1,0 +1,36 @@
+{
+  "scope": "v2 rerun after clearing trend history following long gaps",
+  "reference_checks": {
+    "passed": 101,
+    "failed": 0,
+    "status": "corrected_outputs_verified_with_source_limitations"
+  },
+  "extension_checks": [
+    {
+      "check": "five masking methods including causal naive control",
+      "passed": true
+    },
+    {
+      "check": "39 masks x 5 methods x 5 channels",
+      "passed": true
+    },
+    {
+      "check": "39 masks x 5 forecast methods",
+      "passed": true
+    },
+    {
+      "check": "all four outer years",
+      "passed": true
+    },
+    {
+      "check": "training-only selection recorded",
+      "passed": true
+    },
+    {
+      "check": "scenario rows on declared targets",
+      "passed": true
+    }
+  ],
+  "data_claim": "normalized input partitions; source importer previously smoke-tested; no independent sensor calibration",
+  "previous_reference": "v1 release remains available; its verification must not be attributed to modified v2 preprocessing"
+}

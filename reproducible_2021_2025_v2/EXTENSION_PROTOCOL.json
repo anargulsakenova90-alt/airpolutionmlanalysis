@@ -1,0 +1,72 @@
+{
+  "recorded_date": "2026-10-12",
+  "status": "post-review exploratory extension, not external preregistration",
+  "already_inspected": "2021–2025 and earlier January–June 2026 analyses; 2025 is not a fresh independent test",
+  "outer_test_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "inner_validation": "last six months before each outer test year",
+  "target": "observed next hourly-bin NO2 at horizons 1, 3, 6, 24 hours",
+  "purge": "target timestamp precedes each split boundary; no crossing training targets",
+  "feature_sets": {
+    "all7": "seven pollutants",
+    "without_O3": "six pollutants",
+    "complete5": "PM2.5, PM10, SO2, CO, NO2",
+    "NO2_only": "NO2 history and calendar"
+  },
+  "imputers": [
+    "mean",
+    "median",
+    "causal_linear",
+    "KNN"
+  ],
+  "regressors": {
+    "Ridge_alpha": [
+      0.1,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "ExtraTrees_min_samples_leaf": [
+      5,
+      20
+    ],
+    "HistGradientBoosting_l2": [
+      0.0,
+      1.0
+    ]
+  },
+  "hyperparameter_selection": "minimum inner validation RMSE within each feature/imputer/algorithm combination",
+  "fixed_baselines": [
+    "current NO2 persistence",
+    "previous available daily phase",
+    "previous available weekly phase"
+  ],
+  "missingness_benchmark": {
+    "truth": "observed complete5 concentrations",
+    "mask_rates": [
+      0.05,
+      0.1,
+      0.2
+    ],
+    "block_hours": [
+      1,
+      3,
+      6,
+      24
+    ],
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "masking": "per-channel contiguous blocks before lag construction; future observed targets never imputed",
+    "fit": "training-only donor/statistic/scaling fits",
+    "baseline": "last available NO2 for synthetic sensor outage, not hidden clean current NO2"
+  },
+  "negative_results": "reported without retrospectively changing the outer selection",
+  "source_claims": "units reported from explicit source headers, unresolved physical identities are not guessed"
+}
