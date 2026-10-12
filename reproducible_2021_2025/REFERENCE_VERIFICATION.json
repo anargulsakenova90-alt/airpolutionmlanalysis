@@ -1,0 +1,42 @@
+[
+  {
+    "check": "reference reproduction predictive_comparison.csv",
+    "passed": true,
+    "rows": 84
+  },
+  {
+    "check": "reference reproduction source_cleanup.csv",
+    "passed": true,
+    "rows": 5
+  },
+  {
+    "check": "reference reproduction sensitivity_comparison.csv",
+    "passed": true,
+    "rows": 8
+  },
+  {
+    "check": "reference reproduction selected_forecast_bootstrap.csv",
+    "passed": true,
+    "rows": 1
+  },
+  {
+    "check": "reference reproduction exploratory_comparison.csv",
+    "passed": true,
+    "rows": 12
+  },
+  {
+    "check": "standalone automatic importer",
+    "passed": true,
+    "rows": 24521
+  },
+  {
+    "check": "standalone manual importer",
+    "passed": true,
+    "rows": 496
+  },
+  {
+    "check": "numerical verification suite",
+    "passed": true,
+    "rows": 101
+  }
+]
